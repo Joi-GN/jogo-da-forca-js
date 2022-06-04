@@ -1,9 +1,12 @@
+/* VARIABLES */
 :root{
     --black-color: #252022;
     --white-color: #dcdcdc;
     --red-color: #db303e;
     --green-color: #0CCE6B;
 }
+
+/* GERAL */
 
 * {
     margin: 0;
@@ -13,30 +16,72 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     text-decoration: none;
+    text-align: center;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 2rem;
     background-color: var(--black-color);
     height: 100vh;
     width: 100vw;
-    text-align: center;
     overflow: overlay;
-    position: relative;
+}
+
+body.initial {
+    justify-content: space-around;
 }
 
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-inline: auto;
+    width: 100%;
 }
 
-.container {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+section {
+    width: 100%;
+}
+
+button {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+/* GAME */
+
+#game-status {
+    margin: 0;
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.win {
+    color: var(--green-color);
+}
+
+.lose {
+    color: var(--red-color);
+}
+
+/* VIRTUAL KEYBOARD */
+
+#keyboard {
+    width: 100%;
 }
 
 .letter {
@@ -45,12 +90,9 @@ main {
     width: 3rem;
 }
 
-button {
-    color: var(--black-color);
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem;
-    cursor: pointer;
+.correct {
+    color: var(--green-color);
+    opacity: 0.3;
 }
 
 .incorrect {
@@ -58,20 +100,93 @@ button {
     opacity: 0.3;
 }
 
-.correct {
-    color: var(--green-color);
-    opacity: 0.3;
+/* MENU */
+
+.buttons-container button{
+    margin: 0.5rem;
 }
+
+.buttons-container.initial {
+    display: flex;
+    flex-direction: column;
+} 
+
+.buttons-container.initial button {
+    align-self: center;
+    padding: 1rem;
+    width: 20%;
+}
+
+/* ADD NEW WORD SECTION */
+
+#add-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-section.hide {
+    display: none;
+}
+
+#add-section input {
+    background-color: var(--white-color);
+    border-radius: 6px;
+    color: var(--black-color);
+    padding: 0.5rem;
+}
+
+#add-section svg {
+    fill: var(--white-color);
+    width: 1rem;
+}
+
+#add-section p {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+    margin-block: 1rem;
+}
+
+#add-section p.invalid,
+#add-section p.invalid svg {
+    fill: var(--red-color);
+    color: var(--red-color);
+    transition: fill 0.5s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+#add-section .buttons-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* FOOTER */
 
 footer {
     display: flex;
+    justify-content: center;
     gap: 2rem;
-    position: absolute;
-    bottom: 1rem;
-    text-align: center;
     font-size: 0.75rem;
+    width: 100%;
 }
 
 footer a, p{
     font-weight: 600;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 570px) {
+    canvas {
+        width: 100%;
+    }
+
+    .buttons-container.initial button {
+        width: 40%;
+    }
+    
+    .letter {
+        width: 1.8rem;
+    }
 }

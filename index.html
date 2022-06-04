@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 
     <script defer src="assets/game-board.js"></script>
     <script defer src="assets/game-logic.js"></script>
+    <script defer src="assets/buttons-functions.js"></script>
 
     <title>Jogo da Forca</title>
 </head>
-<body>
-    <main>
+
+<body class="initial">
+    <header>
         <h1>Jogo da Forca</h1>
-        <canvas width="800" height="400"></canvas> 
-        <div id="keyboard"></div>
+    </header>
+    <main>
+        <section id="game-board">
+            <canvas width="0" height="0"></canvas>
+            <p id="game-status"></p>
+        </section>
+        <section id="add-section" class="hide">
+            <div>
+                <input id="new-word" type="text" placeholder="Digite uma palavra" autofocus>
+                <p id="notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z" />
+                    </svg>
+                    Permitido palavras de 4 a 8 letras e sem acentuação
+                </p>
+                <div class="buttons-container">
+                    <button id="add-word-btn">Salvar e iniciar jogo</button>
+                    <button id="cancel-btn">Cancelar</button>
+                </div>
+            </div>
+        </section>
+        <section id="keyboard"></section>
+        <section class="buttons-container initial">
+            <button id="play-btn">Novo Jogo</button>
+            <button id="add-btn">Adicionar palavra</button>
+            <button id="give-up-btn" class="hide">Desistir</button>
+        </section>
     </main>
     <footer>
         <a href="https://www.linkedin.com/in/joice-gomes-dn/" target="_blank">
@@ -30,4 +61,5 @@
         </a>
     </footer>
 </body>
+
 </html>
