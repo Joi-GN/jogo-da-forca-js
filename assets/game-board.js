@@ -77,6 +77,7 @@ function drawHangman() {
             pencil.moveTo(canvas.width / 1.8, canvas.height / 2.5);
             pencil.lineTo(canvas.width / 1.9, canvas.height / 2.2)
             pencil.stroke();
+            pencil.closePath();
             break;
     }
 }

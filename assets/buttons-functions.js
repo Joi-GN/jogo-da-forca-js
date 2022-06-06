@@ -14,7 +14,7 @@ giveUpBtn.addEventListener('click', giveUpGame);
 
 function createGameBoard() {
     if (gameOver) keyboard.innerHTML = '';
-    if (gameOver) resetGame();
+    resetGame();
     resizeCanvas();
     createVirtualKeyboard();
     addListeners();
@@ -43,6 +43,7 @@ function addNewWord() {
     if (input.value.length >= 4 &&
         input.value.length <= 8) {
         words.push(input.value);
+        input.value = '';
         createGameBoard();
         toggleAddSection();
         addBtn.classList.add('hide');
